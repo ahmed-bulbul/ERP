@@ -1,0 +1,120 @@
+server:
+  port: 9090
+
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: bulbul
+    password: 123
+    url: jdbc:mysql://localhost:3306/erp?createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    password: Bulbul321
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    username: bdbulbul.test@gmail.com
+    from:
+      address: bdbulbul.test@gmail.com
+
+  application:
+    name: user-service
+
+eureka:
+  instance:
+    hostname: localhost
+
+
+upload:
+  file:
+    directory: D:/Spring boot Master/File Upload Dir/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: bulbul
+    password: 123
+    url: jdbc:mysql://localhost:3306/rental_service_qa?createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    password: Bulbul321
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    username: bdbulbul.test@gmail.com
+    from:
+      address: bdbulbul.test@gmail.com
+
+upload:
+  file:
+    directory: D:/Spring boot Master/File Upload Dir/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+
+
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: bulbul
+    password: 123
+    url: jdbc:mysql://localhost:3306/rental_service_prod?createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+upload:
+  file:
+    directory: D:/Spring boot Master/File Upload Dir/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
